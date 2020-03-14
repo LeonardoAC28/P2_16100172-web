@@ -1,0 +1,170 @@
+= Resumen primer parcial de paginas web
+
+== Modelo de caja 
+en este modelo se delimita el espacio donde se mostrara el contenido en un plano 2D siendo este el caso de las paginas web, teniendo esto en cuenta hay 2 propiedades que se utilizan para regular las "cajas" width y height para altura y ancho de la caja, como caracteristicas de la "caja" tenemos padding, border,margin.
+
+==== Margin
+son una cantidad de pixeles que se agregan a la caja, por ejemplo si es de 200 px x150 px, se agregan 10 px de margen, esto resulta 210px x 160 px en total, los 10 piexeles funcionan como espaciado entre una caja y otra.
+
+=== Padding
+el pading trabaja apartir del border en direccion al centro, el border por lo regular puede tener valor cero, en este caso el pading se le puede asignar una cantidad de pixeles especifica del mismo modo que al margen, solo que intereractua en direccion al centro de la caja.
+
+como extra, podemos asignar x,y,z,w por dar nombres, para cada lado de la caja para especificar pixeles de manera seguida. por ejemplo:
+
+[source,html]
+----
+ box-shadow: 7px 13px 37px #000;
+
+----
+
+== Propiedad display
+La propiedad display controla la visualización de los elementos, si estos se ocultan, los demas ocuparan el espacio vacio que dejo este elemento, esta caracteristica se puede usar en combinacion con botones, radiobuton entre otros.
+
+=== Block
+el bloque ocupa todo el espacio de la linea, sin necesidad de decidir si lo necesita o no, ocupara todo el espacio disponible.
+
+=== Inline
+esta propiedad hace que el "bloque" o linea solo ocupe el espacio necesario, ya sea una o varias lineas, solo va usar el espacio que necesita.
+
+=== inline-block
+la porpiedad es una hibridacion de las dos anteriores, ya que para todo el documento actua como un elemento inline, pero dentro de si mismo, trabaja como un bloque.
+
+=== none
+Se utiliza display:none para ocultar un elemento, pero que siga usando el mismo espacio en el documento
+
+=== box-sizing
+con box sizing los elementos de las paginas pueden ser del mismo tamaño utilizando el box-sizing, "-webkit-box-sizing: border-box;" "-moz-bz-sizing: border-box" o "box-sizing: border-box;"
+
+
+== Flujo de documento web
+Es el flujo del documento que sigue un documento web, al completar una linea sigue a la siguiente, por esto mismo se utilizan controles
+
+== Tipos de posicionamiento
+podremos tener una estructura html mas dinamica o "responsive" con el uso de el posicionamiento 
+
+==== Static
+la posición estatica es la posición inicial de cualquier "objeto", en este caso una caja.
+
+==== Relative
+este posicionamiento es similar al estatico, con la diferencia que si le asignas valores, los tomara encuenta para su posicionamiento.
+
+==== Fixed
+un objeto con esta propiedad se mantiene en su posicion relativa de la pantalla durante el recorrido de la pagina web, es decir en la posicion que se le asigna se quedara, incluso despues de usar el scroll.
+
+==== Absolute
+este tipo de posicionamiento es similar al Fixed, pero este toma como referencia un contenedor, se fija a la ubicacion marcada, si hay cajas que se puedan recorrer estas lo aran, al estar libre este espacio por la caja que se encuentra de manera absoluta anclada a un contenedor
+
+==== Sticky
+Funciona de manera similar al relativo, no elimina elementos del flujo del html, es decir no afecta a sus elementos adyacentes.
+
+=== Unidades de medida en CSS
+
+==== Absolutas 
+unidades de medida que no dependen de otra para su valor
+
+* in, pulgadas
+* cm, centimetros
+* mm, milimitros
+* pt, puntos, Un punto equivalente a 1 pulgada/72, es decir, unos 0.35  milimetros.
+* pc, picas, Una pica equivale a 12 puntos es decir 4.23 milimetros.
+
+==== Relativas
+Unidades de medidas relativas, su valor siempre depende de otro 
+
+* em, relativa respecto al tamaño del texto
+* ex, relativo respecto a la altura de la letra
+* px, relativo respecto a la resolucion de la pantalla
+
+=== Selectores
+
+* "*" se utiliza para seleccionar todos los elementos de la pagina
+
+ * p selecciona todos los elementos de la pagina cuya etiqueta html coincide con el valor del selector
+
+ * h1 y cambiando el nombre para ir aplcando cambios a los elementos contenidos en el selector
+
+ * h1, h2, h3 tambien se pueden seleccionar varios selectores y efectuar cambios en el contenido de los selectores y aplicarlos a todo el grupo de selectores.
+
+ * p span para seleccionar todos los elementos dentro de p, sin importar la profundidad, pero solo los señalados se les aplicara las condiciones 
+
+ * selector de clase, se le aplica a cualquier atributo que se de la clase marcada ya sea ".parrafo" por poner un ejemplo.
+
+ * Selector de ID, es otro metodo de selección mas especifico mediante el id del atributo, de este modo es mucho mas preciso. 
+
+
+=== Selectores avanzados
+
+==== Selector de hijos
+se utiliza como el selector descendente, pero su funcionamiento es mucho mas especifico, se utiliza para seleccionar un hijo directo de otro elemento y se indica con el signo ">" por ejemplo
+
+[source, html]
+----
+p>span {color: blue;}
+----
+
+==== Selector adyacente
+se utiliza para seleccionar elementos del documento html que se encuentran uno al lado de otro, se utiliza el simbolo de "+" para separar los elementos.
+
+[source, html]
+----
+elemento1+ elemento2 { color: red;}
+----
+
+==== Selector de atributos
+permite seleccionar elementos html basandose en sus atributos o valores de los atributos
+
+* [nombre_atributo] selecciona los elementos que tienen establecido dicho atributo
+
+* [nombre_atributo= valor] selecciona los elementos que tienen por nombre y coinciden en el valor
+
+* [nombre_atributo~=valor] selecciona los elementos que tienen por nombre y almenos uno coincide con el valor
+
+* [nombre_atributo|=Valor] selecciona los elementos que tienen por nombre y cuyo valor es una serie de palabras separadas por guiones pero comienzan con "valor".
+
+
+=== PseudoSelectores
+es una palabra clave se añade a los selectores y que especifica un estado especial del elemento seleccionado.
+
+* hover aplicara un estilo especifico cuando el usuario haga hover sobre el elemento especificado por el selector.
+
+* checked para algunos elementos de los formularios
+
+* visited que trabaja con el historial para los sitios visitados 
+
+* focus representar un elemento que a sido seleccionado, se activa cuando el usuario hace clic o con el tap
+
+=== PseudoElementos
+se añaden a los selectores, pero no describen un estado especial, mas bien permiten cambios a una parte concreta del documento.
+
+* ::after es el ultimo hijo del elemento seleccionado, es utilizado para añadir detalles
+
+* ::before es el ultimo hijo del elemento seleccionado, es utiliado para añadir detalles
+
+* ::selection aplica reglas a una porcion de un documento que ha sido destacado
+
+* ::backdrop muestra una caja de manera inmediata debajo del elemento.
+
+
+=== Cascada
+Cascading Style Sheets o Hojas de Estilo en Cascada, es una tecnica que se aplica los diferente estilos con 3 criterios
+
+* La importancia
+* La especificidad
+* El orden
+
+==== La importancia
+* Estilos del navegador
+* Estilos de la pagina 
+
+==== La especificidad
+si dos selectores aplican al mismo elemento gana el mas especifico
+
+1. los estilos inline **maxima puntuacion**
+2. los ID's   **100 puntos**
+3. Las clases  **10 puntos**
+4. Los elementos **1 puntos**
+
+==== El orden
+las reglas mas abajo sobrescriben las de mas arriba, siempre y cuando el nivel de especificidad sea el mismo.
+
+
