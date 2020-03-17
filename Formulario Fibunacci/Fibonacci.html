@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Series de Fibonacci</title>
+    <meta charset="UTF-8">
+        <meta name="viewport" content=" widh=Device-widh, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>
+    
+   
+    <script>
+        var cantidad;
+        cantidad= prompt("ingresa la cantidad de la sucesion de fibunacci")
+       
+      
+
+    
+    function fibonacci(numero)
+    {
+        let numeros=[0,1];
+        for (let i = 2; i < numero; i++) {
+            numeros[i] = numeros[i - 2] + numeros[i - 1];
+        }
+        return numeros;
+    }
+ 
+    document.write(fibonacci(cantidad)); 
+    </script>
+ 
+</body>
+</html>
